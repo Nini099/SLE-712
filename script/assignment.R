@@ -27,3 +27,5 @@ head(y)
 #Name of the columns are- "site", "TreeID","Circumf_2004_cm", "Circumf_2009_cm", "Circumf_2014_cm " and "Circumf_2019_cm"
 
 #Question7. Calculate the mean and standard deviation of tree circumference at the start and end of the study at both sites. 
+y$Mean = rowMeans(y[,c(3,4,5,6)])
+y
