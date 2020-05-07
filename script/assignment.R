@@ -21,7 +21,7 @@ x[order(-x$Mean_cal),]
 Highest_mean <-x[order(-x$Mean_cal),]
 head(Highest_mean,10)
 #question4 
-subset(x,Mean<10)
+subset(x,Mean_cal<10)
 
 #Question6. Import this csv file into an R object. What are the column names? 
 y<- read.csv("data/growth_data.csv")
