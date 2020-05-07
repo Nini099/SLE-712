@@ -14,7 +14,13 @@ x[1:6,1:2]
 #Question 2. Make a new column which is the mean of the other columns. Show a table of values for the first six genes.
 x$Mean_cal = rowMeans(x[,c(2,3)])
 x
-max.col(x$Mean_cal)
+#Question 3. 
+order(x$Mean_cal)
+order(-x$Mean_cal)
+x[order(-x$Mean_cal),]
+Highest_mean <-x[order(-x$Mean_cal),]
+head(Highest_mean,10)
+#question4 
 subset(x,Mean<10)
 
 #Question6. Import this csv file into an R object. What are the column names? 
@@ -27,5 +33,5 @@ head(y)
 #Name of the columns are- "site", "TreeID","Circumf_2004_cm", "Circumf_2009_cm", "Circumf_2014_cm " and "Circumf_2019_cm"
 
 #Question7. Calculate the mean and standard deviation of tree circumference at the start and end of the study at both sites. 
-y$Mean = rowMeans(y[,c(3,6)])
-y
+
+mean(y$Circumf_2004_cm & y$Circumf_2019_cm)
