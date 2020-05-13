@@ -34,7 +34,7 @@ head(y)
 str(y)
 subset(y,Site=="northeast")
 NE <- subset(y,Site=="northeast")
-SE <- subset(y,Site=="southeast")
+SE <- subset(y,Site=="southwest")
 head(NE)
 head(SE)
 #Name of the columns are- "site", "TreeID","Circumf_2004_cm", "Circumf_2009_cm", "Circumf_2014_cm " and "Circumf_2019_cm"
