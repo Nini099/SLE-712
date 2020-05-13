@@ -48,3 +48,4 @@ sd(NE$Circumf_2004_cm)
 sd(NE$Circumf_2019_cm)
 sd(NE$Circumf_2004_cm)
 sd(NE$Circumf_2019_cm)
+# Make a box plot of tree circumference at the start and end of the study at both sites.
