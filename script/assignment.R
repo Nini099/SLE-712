@@ -35,8 +35,12 @@ str(y)
 subset(y,Site=="northeast")
 NE <- subset(y,Site=="northeast")
 SE <- subset(y,Site=="southeast")
+head(NE)
+head(SE)
 #Name of the columns are- "site", "TreeID","Circumf_2004_cm", "Circumf_2009_cm", "Circumf_2014_cm " and "Circumf_2019_cm"
 
 #Question7. Calculate the mean and standard deviation of tree circumference at the start and end of the study at both sites. 
-
-
+mean(NE$Circumf_2004_cm)
+mean(NE$Circumf_2019_cm)
+mean(SE$Circumf_2004_cm)
+mean(SE$Circumf_2019_cm)
