@@ -48,4 +48,7 @@ sd(NE$Circumf_2004_cm)
 sd(NE$Circumf_2019_cm)
 sd(NE$Circumf_2004_cm)
 sd(NE$Circumf_2019_cm)
-# Make a box plot of tree circumference at the start and end of the study at both sites.
+# Question 8.Make a box plot of tree circumference at the start and end of the study at both sites.
+boxplot(NE$Circumf_2004_cm,NE$Circumf_2019_cm,SE$Circumf_2004_cm,SE$Circumf_2019_cm)
+
+#Question 9. Calculate the mean growth over the past 10 years at each site.
