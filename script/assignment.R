@@ -55,3 +55,7 @@ sd(NE$Circumf_2019_cm)
 boxplot(NE$Circumf_2004_cm,NE$Circumf_2019_cm,SE$Circumf_2004_cm,SE$Circumf_2019_cm)
 boxplot(NE$Circumf_2004_cm,NE$Circumf_2019_cm,SE$Circumf_2004_cm,SE$Circumf_2019_cm,names=c("NE2004","NE2019","SW2004","SW2019"),ylab="Circumference(cm)",main="Growth at 2 plantation sites")
 #Question 9. Calculate the mean growth over the past 10 years at each site.
+NE$Growth <- (NE$Circumf_2009_cm-NE$Circumf_2019_cm )
+head(NE$Growth)
+SE$Growth <- (SE$Circumf_2009_cm-SE$Circumf_2019_cm)
+
