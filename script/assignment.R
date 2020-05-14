@@ -37,25 +37,30 @@ head(y)
 str(y)
 subset(y,Site=="northeast")
 NE <- subset(y,Site=="northeast")
-SE <- subset(y,Site=="southwest")
+SW <- subset(y,Site=="southwest")
 head(NE)
-head(SE)
+head(SW)
 #Name of the columns are- "site", "TreeID","Circumf_2004_cm", "Circumf_2009_cm", "Circumf_2014_cm " and "Circumf_2019_cm"
 
 #Question7. Calculate the mean and standard deviation of tree circumference at the start and end of the study at both sites. 
 mean(NE$Circumf_2004_cm)#for 
 mean(NE$Circumf_2019_cm)
-mean(SE$Circumf_2004_cm)
-mean(SE$Circumf_2019_cm)
+mean(SW$Circumf_2004_cm)
+mean(SW$Circumf_2019_cm)
 sd(NE$Circumf_2004_cm)
 sd(NE$Circumf_2019_cm)
-sd(NE$Circumf_2004_cm)
-sd(NE$Circumf_2019_cm)
+sd(SW$Circumf_2004_cm)
+sd(SW$Circumf_2019_cm)
 # Question 8.Make a box plot of tree circumference at the start and end of the study at both sites.
-boxplot(NE$Circumf_2004_cm,NE$Circumf_2019_cm,SE$Circumf_2004_cm,SE$Circumf_2019_cm)
-boxplot(NE$Circumf_2004_cm,NE$Circumf_2019_cm,SE$Circumf_2004_cm,SE$Circumf_2019_cm,names=c("NE2004","NE2019","SW2004","SW2019"),ylab="Circumference(cm)",main="Growth at 2 plantation sites")
+boxplot(NE$Circumf_2004_cm,NE$Circumf_2019_cm,SW$Circumf_2004_cm,SW$Circumf_2019_cm)
+boxplot(NE$Circumf_2004_cm,NE$Circumf_2019_cm,SW$Circumf_2004_cm,SW$Circumf_2019_cm,names=c("NE2004","NE2019","SW2004","SW2019"),ylab="Circumference(cm)",main="Growth at 2 plantation sites")
 #Question 9. Calculate the mean growth over the past 10 years at each site.
-NE$Growth <- (NE$Circumf_2009_cm-NE$Circumf_2019_cm )
+NE$Growth <- (NE$Circumf_2019_cm-NE$Circumf_2009_cm )
 head(NE$Growth)
-SE$Growth <- (SE$Circumf_2009_cm-SE$Circumf_2019_cm)
-
+SW$Growth <- (SW$Circumf_2019_cm-SW$Circumf_2009_cm)
+head(SE$Growth)
+head(y)
+#Questoin 10..Use the t.test and wilcox.test functions to estimate the p-value that the 10 year growth is different at the two sites
+t.test(SW$Growth,NE$Growth)
+wilcox.test(SW$Growth,NE$Growth)
+# the P-value for t-test is 1.713e-06, and for Wilcox test it is 4.626e-06.
