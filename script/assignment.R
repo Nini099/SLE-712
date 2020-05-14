@@ -22,11 +22,13 @@ Highest_mean <-x[order(-x$Mean_cal),]
 head(Highest_mean,10)
 #question4 
 subset(x,Mean_cal<10)
+#Question 5.  Make a histogram plot of the mean values in png format and paste it into your report
 
+hist(Mean_cal,main="Histogram for Mean values",xlab = "gene",borborder = "red",col="blue",xlim = c(0,500),breaks = 5)
 #Question6. Import this csv file into an R object. What are the column names? 
 y<- read.csv("data/growth_data.csv")
 head(y)
-str(y)
+str(y) 
 y <- read.csv("data/growth_data.csv", header = TRUE)
 head(y)
 y <- read.csv("data/growth_data.csv", header = TRUE, stringsAsFactors = FALSE)
