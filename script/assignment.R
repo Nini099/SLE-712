@@ -74,11 +74,7 @@ library("rBLAST")
 library("ape")
 library("ORFik")
 library("Biostrings")
-unlink(download.file("https://raw.githubusercontent.com/markziemann/SLE712_files/master/bioinfo_asst3_part2_files/sample.fa",
-              destfile = "ecoligene"))
-download.file("ftp://ftp.ensemblgenomes.org/pub/bacteria/release-42/fasta/bacteria_0_collection/escherichia_coli_str_k_12_substr_mg1655/cds/Escherichia_coli_str_k_12_substr_mg1655.ASM584v2.cds.all.fa.gz",destfile = "ecoligene.gz")
-R.utils::gunzip("ecoligene.gz", overwrite= TRUE)
-makeblastdb("Escherichia_coli_str_k_12_substr_mg1655.ASM584v2.cds.all.fa",dbtype = "nucl","-parse_seqids")
+
 #Question 1. 
 if ( ! file.exists("Escherichia_coli_str_k_12_substr_mg1655.ASM584v2.cds.all.fa") ) {
   download.file("ftp://ftp.ensemblgenomes.org/pub/bacteria/release-42/fasta/bacteria_0_collection/escherichia_coli_str_k_12_substr_mg1655/cds/Escherichia_coli_str_k_12_substr_mg1655.ASM584v2.cds.all.fa.gz",
@@ -100,4 +96,10 @@ allocated_Seq [1:789]
 length(allocated_Seq)
 table(allocated_Seq)
 (247+181)*100/(173+181+247+188)#to calculate the proportion of GC
+seqinr::GC(allocated_Seq)
 #The proportion of GC is 54.24588% 
+#Question 3.
+source("https://raw.githubusercontent.com/markziemann/SLE712_files/master/bioinfo_asst3_part2_files/mutblast_functions.R")
+myblastn_tab
+res <- myblastn_tab(allocated_Seq, db="Escherichia_coli_str_k_12_substr_mg1655.ASM584v2.cds.all.fa")
+str(res)
