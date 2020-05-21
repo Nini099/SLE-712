@@ -25,7 +25,6 @@ subset(x,Mean_cal<10)
 #Question 5.  Make a histogram plot of the mean values in png format and paste it into your report
 range(x$Mean_cal)
 hist(x$Mean_cal,main="Histogram for Mean values",xlab = "mean value",border = "red",col="blue",breaks = 50,xlim=c(0,10000))
-
 #Question6. Import this csv file into an R object. What are the column names? 
 y<- read.csv("data/growth_data.csv")
 head(y)
@@ -93,9 +92,9 @@ if ( ! file.exists("sample.fa") ) {
 Ecoli_Sample <- read.fasta("sample.fa")
 allocated_Seq <- Ecoli_Sample$`53`
 allocated_Seq [1:789]
-length(allocated_Seq)
+seqinr::getLength(allocated_Seq)
 table(allocated_Seq)
-(247+181)*100/(173+181+247+188)#to calculate the proportion of GC
+#to calculate the proportion of GC
 seqinr::GC(allocated_Seq)
 #The proportion of GC is 54.24588% 
 #Question 3.
@@ -103,3 +102,20 @@ source("https://raw.githubusercontent.com/markziemann/SLE712_files/master/bioinf
 myblastn_tab
 res <- myblastn_tab(allocated_Seq, db="Escherichia_coli_str_k_12_substr_mg1655.ASM584v2.cds.all.fa")
 str(res)
+res
+hits <- as.character(res$sseqid[1:3])
+hits
+#We can see that the allocated sequence parfectly matches the Source E.coli sequence. 
+# Percent Identity-100, E-value - 0 , bitscore - int 1517
+db <- read.fasta("Escherichia_coli_str_k_12_substr_mg1655.ASM584v2.cds.all.fa")
+str(str(db[1:6]))
+
+#Quistion 4
+seqinr::write.fasta(allocated_Seq,names="allocated_Seq",file.out = "allocated_Seq.fa")
+makeblastdb("allocated_Seq.fa",dbtype="nucl", "-parse_seqids")
+res <- myblastn_tab(allocated_Seq, db="allocated_Seq.fa")
+res
+my_allocated_mutator<-mutator(allocated_Seq,20)
+res <- myblastn_tab(my_allocated_mutator, db="allocated_Seq.fa")
+res
+#
