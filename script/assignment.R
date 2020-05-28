@@ -110,12 +110,40 @@ hits
 db <- read.fasta("Escherichia_coli_str_k_12_substr_mg1655.ASM584v2.cds.all.fa")
 str(str(db[1:6]))
 
-#Quistion 4
+#Quistion 4 # create a copy of my allocated sequnce that has certain number of mismathces in it
 seqinr::write.fasta(allocated_Seq,names="allocated_Seq",file.out = "allocated_Seq.fa")
 makeblastdb("allocated_Seq.fa",dbtype="nucl", "-parse_seqids")
 res <- myblastn_tab(allocated_Seq, db="allocated_Seq.fa")
 res
 my_allocated_mutator<-mutator(allocated_Seq,20)
+res <- myblastn_tab(my_allocated_mutator, db="allocated_Seq.fa") #
+res
+#Question 5 # to identify blast 
+my_allocated_mutator<-mutator(allocated_Seq,50)
+res <-myblastn_tab(my_allocated_mutator, db="allocated_Seq.fa")
+res       
+#35 mismatches
+my_allocated_mutator <-mutator(allocated_Seq,100)
 res <- myblastn_tab(my_allocated_mutator, db="allocated_Seq.fa")
 res
-#
+#68 mismatches
+my_allocated_mutator <-mutator(allocated_Seq,200)
+res <- myblastn_tab(my_allocated_mutator, db="allocated_Seq.fa")
+res
+#147 mismatches 
+my_allocated_mutator <-mutator(allocated_Seq,150)
+res <- myblastn_tab(my_allocated_mutator, db="allocated_Seq.fa")
+res
+#111 Mismatches 
+my_allocated_mutator <-mutator(allocated_Seq,500)
+res <- myblastn_tab(my_allocated_mutator, db="allocated_Seq.fa")
+res
+#Null
+my_allocated_mutator <-mutator(allocated_Seq,210)
+res <- myblastn_tab(my_allocated_mutator, db="allocated_Seq.fa")
+res
+#151 mismatches  
+my_allocated_mutator <-mutator(allocated_Seq,215)
+res <- myblastn_tab(my_allocated_mutator, db="allocated_Seq.fa")
+res
+#Null 
