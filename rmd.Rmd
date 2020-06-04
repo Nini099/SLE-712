@@ -10,40 +10,41 @@ editor_options:
 ##Part 1: Importing files, data wrangling, mathematical operations, plots and saving code on GitHub 
 
 ### Question 1 : Read in the file, making the gene accession numbers the row names. Show a table of values for the first six genes
-Answer: The "geneexpression.tsv"was downloaded from the link "https://raw.githubusercontent.com/markziemann/SLE712_files/master/bioinfo_asst3_part1_files/gene_expression.tsv", and saved into Rstudio in a file. 
+####Answer: The "geneexpression.tsv"was downloaded from the link "https://raw.githubusercontent.com/markziemann/SLE712_files/master/bioinfo_asst3_part1_files/gene_expression.tsv", and saved into Rstudio in a file. 
 ```{r}
 x<- read.table("data/gene_expression.tsv", header = TRUE, stringsAsFactors = FALSE, row.names = 1)
 head(x)
 str(x)
 x[1:6,1:2]
 ```
-The row names were changed into gene accession number while naming the table as x
+####The row names were changed into gene accession number while naming the table as x
 ### Question 2 : Make a new column which is the mean of the other columns. Show a table of values for the first six genes
 ```{r}
 x$Mean_cal <- rowMeans(x)
 head(x)
 x[1:6,1:3]
 ```
-A new column "Mean_cal" is created that holds the mean value of the other columns. 
+####A new column "Mean_cal" is created that holds the mean value of the other columns. 
 
 ###Question3. List the 10 genes with the highest mean expression 
 ```{r}
 Highest_mean <-x[order(-x$Mean_cal),]
 head(Highest_mean,10)
 ```
-The function "Highest mean" calculates the highest expression from the target column. 
+####The function "Highest mean" calculates the highest expression from the target column. 
 
 ###Question 4.Determine the number of genes with a mean <10 
 ```{r}
 subset(x,Mean_cal<10)
 ```
-The subset function here shows the genes with only the mean values less than 10
+####The subset function here shows the genes with only the mean values less than 10
 
 ###Question 5. Make a histogram plot of the mean values in png format and paste it into your report
 ```{r,"Histogram for Mean values",echo=FALSE}
 hist(x$Mean_cal,main="Histogram for Mean values",xlab = "mean value",border = "red",col="blue",breaks = 50,xlim=c(0,10000))
 ```
 ###Question 6. Import this csv file into an R object. What are the column names?
+####The CSV files were uploaded from the link "https://raw.githubusercontent.com/markziemann/SLE712_files/master/bioinfo_asst3_part1_files/growth_data.csv" and saved in Rstudio. The "csv" file was saved as obejct "y". 
 ```{r}
 y <- read.csv("data/growth_data.csv", header = TRUE, stringsAsFactors = FALSE)
 head(y)
@@ -51,4 +52,28 @@ str(y)
 ```
 ###Name of the columns are- "site", "TreeID","Circumf_2004_cm", "Circumf_2009_cm", "Circumf_2014_cm " and "Circumf_2019_cm"
 
+###Question 7 Calculate the mean and standard deviation of tree circumference at the start and end of the study at both sites. 
+#### Prior to calculating mean and Standard deviation, both sites of study were saved as seperate obejcts "NE" for "NorthEast" and "SE" for "SouthWest" 
+```{r}
+
+NE <- subset(y,Site=="northeast")
+SW <- subset(y,Site=="southwest")
+head(NE)
+head(SW)
+```
+
+###Mean calculation of tree circumference at the start and end of the study for North East Site
+```{r}
+mean(NE$Circumf_2004_cm)
+mean(NE$Circumf_2019_cm)
+sd(NE$Circumf_2004_cm)
+sd(NE$Circumf_2019_cm)
+```
+####Mean  and standard deviation calculation of tree circumfurence at the satrt and end of the site Southwest
+```{r}
+mean(SW$Circumf_2004_cm)
+mean(SW$Circumf_2019_cm)
+sd(SW$Circumf_2004_cm)
+sd(SW$Circumf_2019_cm)
+```
 
