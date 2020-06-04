@@ -136,8 +136,12 @@ res
 
 
 
-res
-#Question 5
+limitmutation <-function(res){myblastn_tab(c(0,1),1,replace= TRUE)}
+replicate(215,limitmutation(res))
+mean(replicate(215,limitmutation(res)))
+
+
+#Question 5 Using the provided functions for mutating and BLASTing a sequence, determine the number and proportion of sites that need to be altered to prevent the BLAST search from matching the gene of origin. Because the mutation is random, you may need to run this test multiple times to get a reliable answer
 my_allocated_mutator<-mutator(allocated_Seq,50)
 res <-myblastn_tab(my_allocated_mutator, db="allocated_Seq.fa")
 res       
