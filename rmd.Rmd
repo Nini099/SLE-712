@@ -7,7 +7,7 @@ editor_options:
   chunk_output_type: inline
 ---
  
-## Part 1: Importing files, data wrangling, mathematical operations, plots and saving code on GitHub 
+### Part 1: Importing files, data wrangling, mathematical operations, plots and saving code on GitHub 
 
 ##Question 1 : Read in the file, making the gene accession numbers the row names. Show a table of values for the first six genes
 ###Answer: 
@@ -111,43 +111,38 @@ t.test(SW$Growth,NE$Growth)
 wilcox.test(SW$Growth,NE$Growth)
 ```
 ##the P-value for t-test is 1.713e-06, and for Wilcox test it is 4.626e-06
+
 -----
 
-## Part 2 : Determine the limits of BLAST 
+### Part 2 : Determine the limits of BLAST 
 
-##Required Libraries and sources 
+Required Libraries and sources 
 Some packages need to be downloaded to work with sequence data. The packages are-
-*item 1 `seqinr`
+ `seqinr` to process and analyse sequence data
 ```{r}
 library("seqinr")
 ```
-###to process and analyse sequence data
-*item 2 `R.utils`
+ `R.utils`to extract compressed files
 ```{r}
 library("R.utils")
 ```
-###to extract compressed files
-*item 3 `rBLAST`
+ `rBLAST`for running BLAST searches
 ```{r}
 library("rBLAST")
 ```
-### for running BlAST searches
-*item 4 `ape`
+ `ape`cluster alighment property
 ```{r}
 library("ape")
 ```
-###cluster alighment property
-*item 5 `ORFik`
+ `ORFik`analysis of open reading frames in the genome of interest or set of transcripts 
 ```{r}
 library("ORFik")
 ```
-###analysis of open reading frames in the genome of interest or set of transcripts 
-*item 6 `Biostrings`
+ `Biostrings`efficient manipulation of biological strings
 ```{r}
 library("Biostrings")
 ```
-###efficient manipulation of biological strings 
-
+ 
 ##Question 1  Download the whole set of E. coli gene DNA sequences and use gunzip to decompress. Use the makeblast() function to create a blast database. How many sequences are present in the _E.coli_ set? 
 ##Answer:
 ```{r}
@@ -214,7 +209,7 @@ makeblastdb("allocated_Seq.fa",dbtype="nucl", "-parse_seqids")
 res <- myblastn_tab(allocated_Seq, db="allocated_Seq.fa")
 res
 ```
-lowering the number to see the mismatches 
+changing the number to check the mismatches 
 ```{r}
 my_allocated_mutator<-mutator(allocated_Seq,20)
 res <- myblastn_tab(my_allocated_mutator, db="allocated_Seq.fa")
