@@ -1,10 +1,13 @@
 # SLE-712
 Bioinformatics Assessment part 1 and 2 
 ## Author  
-Nishat Nini Urmi
-ID: 219276546
+
+#### Nishat Nini Urmi
+#### ID: 219276546
+
 ## Motivation
 For academic purposes to learn about coding language "R". By answering the question in first part assignment will let me test my ability to use R to perform file reading, oredeirng, subsetting, table generation with relevant columns and chart creation. The second part of the assessment is to learn using provided functions to determine the limit of BLAST . 
+
 ## Contents
 ### Data_file 
 contains the "gene_exression.tsv" and "growth_data.csv" files that are needed to answer the questions on *Part 1* of the assessment. 
