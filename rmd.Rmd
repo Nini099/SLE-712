@@ -1,7 +1,7 @@
 ---
 title: "SLE712 Assessment 3"
 author: "Nishat Nini Urmi"
-date: "6/3/2020"
+date: "6/7/2020"
 output: html_document
 editor_options: 
   chunk_output_type: inline
