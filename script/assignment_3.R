@@ -180,3 +180,7 @@ replicate(n=110, expr = mutator(allocated_Seq, nmut = 10))
 
 replicate(n=100, expr = mutator(myseq = allocated_Seq,nmut = 200))
 finalres <- sapply(10,function( nmut) {  mean(replicate(n = 100, expr = myblastn_tab(myseq=allocated_Seq,10) ) ) } )
+
+myfunc <- function() { myblastn_tab( myseq= allocated_Seq,Ecoli_Sample)}
+mutator(myseq = allocated_Seq, nmut = 10) 
+myfunc()
