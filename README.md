@@ -28,5 +28,5 @@ library("Biostrings")
 ## Installation
 Rstudio 
 version 1.2.1335 
-## Liscence 
- LICENSE
+
+LICENSE
