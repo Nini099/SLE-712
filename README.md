@@ -14,6 +14,16 @@ Contains the codes for answers from both parts of the assessment with relevent c
 ###Rmd file 
 contains the detailed answers to the assessment questions. 
 
+##Packages
+```{r}
+library("seqinr")
+library("R.utils")
+library("rBLAST")
+library("ape")
+library("ORFik")
+library("Biostrings")
+ ``` 
+
 ## Installation 
 Rstudio 
 version 1.2.1335 
