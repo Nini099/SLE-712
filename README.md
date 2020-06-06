@@ -10,7 +10,7 @@ For academic purposes to learn about coding language "R". By answering the quest
 
 ## Contents
 ### Data_file 
-contains the "gene_exression.tsv" and "growth_data.csv" files that are needed to answer the questions on *Part 1* of the assessment. 
+contains the "gene_exression.tsv" and "growth_data.csv" files that are needed to answer the questions on **Part 1** of the assessment. 
 ### Script_file 
 Contains the codes for answers from both parts of the assessment with relevent comments about the functions. 
 ### Rmd file 
