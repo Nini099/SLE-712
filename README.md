@@ -29,4 +29,4 @@ library("Biostrings")
 Rstudio 
 version 1.2.1335 
 ## Liscence 
- 
+ LICENSE
