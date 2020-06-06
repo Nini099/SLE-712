@@ -141,11 +141,6 @@ res <- myblastn_tab(my_allocated_mutator, db="allocated_Seq.fa")
 res
 #Null 
 
-
-
-
-
-
 #Question 5 Using the provided functions for mutating and BLASTing a sequence, determine the number and proportion of sites that need to be altered to prevent the BLAST search from matching the gene of origin. Because the mutation is random, you may need to run this test multiple times to get a reliable answer
 my_allocated_mutator<-mutator(allocated_Seq,50)
 res <-myblastn_tab(my_allocated_mutator, db="allocated_Seq.fa")
@@ -179,8 +174,7 @@ res
 myfunc <- function(allocated_Seq) { mutator(allocated_Seq,500)}
 if (is.null(allocated_Seq)) { 0 } else { 1 } 
 
-myfunc <- 
-  mutator(myseq = allocated_Seq, nmut = 10)
+myfunc <- mutator(myseq = allocated_Seq, nmut = 10)
 myblastn(mutator(myseq = allocated_Seq,nmut = 10))
 replicate(n=110, expr = mutator(allocated_Seq, nmut = 10))
 
