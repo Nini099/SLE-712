@@ -14,13 +14,15 @@ Contains the codes for answers from both parts of the assessment with relevent c
 contains the detailed answers to the assessment questions. 
 ## Packages
 The following packages are needed to work with sequnce in R for part 2 
+```{r}
 library("seqinr") 
 library("R.utils")
 library("rBLAST")
 library("ape")
 library("ORFik")
 library("Biostrings")
-## 
+```
+## Installation
 Rstudio 
 version 1.2.1335 
 ## Liscence 
