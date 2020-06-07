@@ -239,4 +239,16 @@ geting the summerised result
 ```{r}
 mean(replicate(100,myfunc(myseq,100 )))
 ```
+we need to run this for all the values for nmut. The numbers are saved as n below which is used to run the replicate command 
+```{r}
+n <-c (0,100,200,300,400,500,600,700)
+myfunction_rep <- function(nmut) {
+ mean(replicate(n=100, myfunc(myseq,100)))
+}
+```
+The final answer with sapply comand 
+```{r}
+finalress <- sapply( n ,myfunction_rep)
+finalress
+```
 
