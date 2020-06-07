@@ -16,12 +16,12 @@ head(x) #to see the first and last part of the target table
 str(x) #to see the interanl structure of "x"
 x[1:6,1:2]#to make the table of first six genes in the table, where inside the bracket [row,colum] 
 
-
 #Question 2. Make a new column which is the mean of the other columns. Show a table of values for the first six genes.
 #to make a new row with mean values from other rows
 x$Mean_cal <- rowMeans(x)
 head(x)
 x[1:6,1:3]
+
 #Question 3. List the 10 genes with the highest mean expression
  # the function to show data in a selected table from highest to lowest 
 x[order(-x$Mean_cal),]
