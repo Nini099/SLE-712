@@ -14,9 +14,9 @@ editor_options:
 ```{r}
 download.file("https://raw.githubusercontent.com/markziemann/SLE712_files/master/bioinfo_asst3_part1_files/gene_expression.tsv", destfile = "gene_expression.tsv" )
 x<- read.table("data/gene_expression.tsv", header = TRUE, stringsAsFactors = FALSE, row.names = 1)
-head(x)
+head(x,6)
 str(x)
-x[1:6,1:2]
+
 ```
 The row names were changed into gene accession number while naming the table as x
 ##Question 2 : Make a new column which is the mean of the other columns. Show a table of values for the first six genes
