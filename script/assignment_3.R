@@ -138,8 +138,6 @@ res
 my_allocated_mutator<-mutator(allocated_Seq,20)
 res <- myblastn_tab(my_allocated_mutator, db="allocated_Seq.fa") 
 
- 
-
 #Question 5 Using the provided functions for mutating and BLASTing a sequence, determine the number and proportion of sites that need to be altered to prevent the BLAST search from matching the gene of origin. Because the mutation is random, you may need to run this test multiple times to get a reliable answer
 
 #at first we have to create a fucntion that can mutate+blast and then summerise the result as a 0 or 1. 
@@ -147,10 +145,16 @@ myfunc <- function(myseq,nmut) {
   mutseq <- mutator( myseq= allocated_Seq, nmut = nmut) #the sequence for mutation, nmut=nmut as it will recognize the number after the sequence as nmut 
   res <- myblastn_tab(myseq= allocated_Seq,db= "Escherichia_coli_str_k_12_substr_mg1655.ASM584v2.cds.all.fa") #for blast
   if (is.null(res)) {myres= 0} else {myres = 1} 
-  return(myres) # to summerise the result, depending on if the blast was or wasn't successful
+  return(myres) 
 }
 myfunc(myseq,100) #applying the created function
 replicate(n = 100, myfunc(myseq,100)) #to repeat the function several times that would give a vector of 100 values
-n <-c(0,100,200,300)
-mean(replicate(100,myfunc(myseq,100 ))) #
 
+mean(replicate(100,myfunc(myseq,100 ))) # to summerise the result
+mean(replicate(100,myfunc(myseq,0)))
+mean(replicate(100,myfunc(myseq,200)))
+mean(replicate(100,myfunc(myseq,300)))
+mean(replicate(100,myfunc(myseq,400)))
+mean(replicate(100,myfunc(myseq,500)))
+mean(replicate(100,myfunc(myseq,700)))
+mean(replicate(100,myfunc(myseq,800)))
