@@ -135,9 +135,9 @@ makeblastdb("allocated_Seq.fa",dbtype="nucl", "-parse_seqids")
 res <- myblastn_tab(allocated_Seq, db="allocated_Seq.fa")
 res
 #taste with a specific number to show the mismatches
-my_allocated_mutator<-mutator(allocated_Seq,20)
+my_allocated_mutator<-mutator(allocated_Seq,10)
 res <- myblastn_tab(my_allocated_mutator, db="allocated_Seq.fa") 
-
+res
 #Question 5 Using the provided functions for mutating and BLASTing a sequence, determine the number and proportion of sites that need to be altered to prevent the BLAST search from matching the gene of origin. Because the mutation is random, you may need to run this test multiple times to get a reliable answer
 
 #at first we have to create a fucntion that can mutate+blast and then summerise the result as a 0 or 1. 
@@ -158,3 +158,11 @@ mean(replicate(100,myfunc(myseq,400)))
 mean(replicate(100,myfunc(myseq,500)))
 mean(replicate(100,myfunc(myseq,700)))
 mean(replicate(100,myfunc(myseq,800)))
+
+n <-c (0,100,200,300)
+myfunction_rep <- function(nmut) {
+ mean(replicate(n=100, myfunc(myseq,100)))
+}
+
+finalress <- sapply( n ,myfunction_rep)
+finalress
