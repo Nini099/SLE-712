@@ -17,6 +17,10 @@ Contains the codes for answers from both parts of the assessment with relevent c
 contains the detailed answers to the assessment questions. 
 <<<<<<< HEAD
 
+description for each codes in *Part1* with inputs and outputs 
+
+read the (.tsv) file 
+
 ##Packages
 ```{r}
 library("seqinr")
