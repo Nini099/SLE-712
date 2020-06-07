@@ -216,3 +216,27 @@ res <- myblastn_tab(my_allocated_mutator, db="allocated_Seq.fa")
 res
 ```
 
+##Question 5 Using the provided functions for mutating and BLASTing a sequence, determine the number and proportion of sites that need to be altered to prevent the BLAST search from matching the gene of origin. Because the mutation is random, you may need to run this test multiple times to get a reliable answer
+
+##Answer : At 1st we need to create a function that will do mutation and blast and give the result as 0 or 1 depending on the blast was successful or not
+```{r}
+myfunc <- function(myseq,nmut) { 
+  mutseq <- mutator( myseq= allocated_Seq, nmut = nmut) #the sequence for mutation, nmut=nmut as it will recognize the number after the sequence as nmut 
+  res <- myblastn_tab(myseq= allocated_Seq,db= "Escherichia_coli_str_k_12_substr_mg1655.ASM584v2.cds.all.fa") #for blast
+  if (is.null(res)) {myres= 0} else {myres = 1} 
+  return(myres) 
+}
+```
+ applying the created function 
+```{r}
+myfunc(myseq,100)
+```
+Then applying the replicate fucntion that will run the same function several times and that would give a vector of number of values 
+```{r}
+replicate(n = 100, myfunc(myseq,100))
+```
+geting the summerised result 
+```{r}
+mean(replicate(100,myfunc(myseq,100 )))
+```
+
