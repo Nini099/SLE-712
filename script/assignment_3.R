@@ -138,49 +138,19 @@ res
 my_allocated_mutator<-mutator(allocated_Seq,20)
 res <- myblastn_tab(my_allocated_mutator, db="allocated_Seq.fa") 
 
-res
-#Null 
+ 
 
 #Question 5 Using the provided functions for mutating and BLASTing a sequence, determine the number and proportion of sites that need to be altered to prevent the BLAST search from matching the gene of origin. Because the mutation is random, you may need to run this test multiple times to get a reliable answer
-my_allocated_mutator<-mutator(allocated_Seq,50)
-res <-myblastn_tab(my_allocated_mutator, db="allocated_Seq.fa")
-res       
-#35 mismatches
-my_allocated_mutator <-mutator(allocated_Seq,100)
-res <- myblastn_tab(my_allocated_mutator, db="allocated_Seq.fa")
-res
-#68 mismatches
-my_allocated_mutator <-mutator(allocated_Seq,200)
-res <- myblastn_tab(my_allocated_mutator, db="allocated_Seq.fa")
-res
-#147 mismatches 
-my_allocated_mutator <-mutator(allocated_Seq,150)
-res <- myblastn_tab(my_allocated_mutator, db="allocated_Seq.fa")
-res
-#111 Mismatches 
-my_allocated_mutator <-mutator(allocated_Seq,500)
-res <- myblastn_tab(my_allocated_mutator, db="allocated_Seq.fa")
-res
-#Null
-my_allocated_mutator <-mutator(allocated_Seq,210)
-res <- myblastn_tab(my_allocated_mutator, db="allocated_Seq.fa")
-res
-#151 mismatches  
-my_allocated_mutator <-mutator(allocated_Seq,215)
-res <- myblastn_tab(my_allocated_mutator, db="allocated_Seq.fa")
-res
-#Null 
 
-myfunc <- function(allocated_Seq) { mutator(allocated_Seq,500)}
-if (is.null(allocated_Seq)) { 0 } else { 1 } 
+#at first we have to create a fucntion that can mutate+blast and then summerise the result as a 0 or 1. 
+myfunc <- function(myseq,nmut) { 
+  mutseq <- mutator( myseq= allocated_Seq, nmut = nmut) #the sequence for mutation, nmut=nmut as it will recognize the number after the sequence as nmut 
+  res <- myblastn_tab(myseq= allocated_Seq,db= "Escherichia_coli_str_k_12_substr_mg1655.ASM584v2.cds.all.fa") #for blast
+  if (is.null(res)) {myres= 0} else {myres = 1} 
+  return(myres) # to summerise the result, depending on if the blast was or wasn't successful
+}
+myfunc(myseq,100) #applying the created function
+replicate(n = 100, myfunc(myseq,100)) #to repeat the function several times that would give a vector of 100 values
+n <-c(0,100,200,300)
+mean(replicate(100,myfunc(myseq,100 ))) #
 
-myfunc <- mutator(myseq = allocated_Seq, nmut = 10)
-myblastn(mutator(myseq = allocated_Seq,nmut = 10))
-replicate(n=110, expr = mutator(allocated_Seq, nmut = 10))
-
-replicate(n=100, expr = mutator(myseq = allocated_Seq,nmut = 200))
-finalres <- sapply(10,function( nmut) {  mean(replicate(n = 100, expr = myblastn_tab(myseq=allocated_Seq,10) ) ) } )
-
-myfunc <- function() { myblastn_tab( myseq= allocated_Seq,Ecoli_Sample)}
-mutator(myseq = allocated_Seq, nmut = 10) 
-myfunc()
