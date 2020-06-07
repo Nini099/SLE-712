@@ -27,7 +27,8 @@ input : **.tsv file**
 output : **data. frame**
 ```{r}
 x<- read.table("data/gene_expression.tsv", header = TRUE, stringsAsFactors = FALSE, row.names = 1)
-head(x,6)
+head(x)
+x[1:6,1:2]
 ```
 
 #### To make a new column that will show the mean of other two columns 
@@ -41,7 +42,8 @@ output : **dataset + new column**
 
 ```{r}
 x$Mean_cal <- rowMeans(x)
-head(x,6)
+head(x)
+x[1:6,1:3]
 ```
 #### List of 10 genes with highest mean expression 
 To get the highest value in a data set, the function __order__  ("-" incorporated) is used that orders the values from the *Mean_Cal* column in a descending order. The values are saved as "Highes_mean". Then running the function with the attribute 10 give the list of 10 genes with highest mean expreassion. 
@@ -51,7 +53,7 @@ function : **order()**
 
 input : **values from selected column**
 
-outout: **data frame* 
+outout: **data frame** 
 ```
 {r}
 Highest_mean <-x[order(-x$Mean_cal),]
@@ -126,18 +128,61 @@ output: **calculated total mean for the column**
 ```{r}
 mean(NE$Circumf_2004_cm)
 mean(NE$Circumf_2019_cm)
+mean(SW$Circumf_2004_cm)
+mean(SW$Circumf_2019_cm)
+```
+function: **sd()**
+
+input: **data.frame**
+
+output: **calculted standard deviation for the selected columns**
+```{r}
 sd(NE$Circumf_2004_cm)
 sd(NE$Circumf_2019_cm)
+sd(SW$Circumf_2004_cm)
+sd(SW$Circumf_2019_cm)
 ```
+#### Creating a boxplot
+The function __boxplot()__ takes the given data.frame and releases it as a boxplot 
+
+function : **boxplot**
+
+input: **data.frame for boxplot with description of the plot**
+
+```{r}
+boxplot(NE$Circumf_2004_cm,NE$Circumf_2019_cm,SW$Circumf_2004_cm,SW$Circumf_2019_cm,names=c("NE2004","NE2019","SW2004","SW2019"),ylab="Circumference(cm)",main="Growth at 2 plantation sites")
+```
+#### Calculation of mean growth for over past 10 years on each site of the study 
+Two seperate columns were created that shows the difference of mean values of last 10 years for each sites.
+```{r}
+NE$Growth <- (NE$Circumf_2019_cm-NE$Circumf_2009_cm )
+head(NE)
+
+SW$Growth <- (SW$Circumf_2019_cm-SW$Circumf_2009_cm)
+head(SW)
+```
+#### t.test and wicox.test for estimating the p-value for last 10 years 
+The function __t.test()__ and __wilcox.test__ gives us the p-value, that shows the difference for last 10 years.
+
+function : **t.test()**
+
+input: **data.frame**
+```{r}
+t.test(SW$Growth,NE$Growth)
+```
+function : **wilcox.test()**
+
+input: **data.frame**
+
+```{r}
+wilcox.test(SW$Growth,NE$Growth
+```
+
 ### Rmd file 
 contains the detailed answers to the assessment questions. 
 <<<<<<< HEAD
   
 
-##Packages
-```{r}
-library("seqinr")
-=======
 ## Packages
 The following packages are needed to work with sequnce in R for part 2 
 ```{r}
@@ -156,7 +201,6 @@ library("Biostrings")
 ```
 ##
 ## Installation
->>>>>>> 86aed0bd7f03eff6c1d7c7162aa59eb948f0afc2
 Rstudio 
 version 1.2.1335 
 
