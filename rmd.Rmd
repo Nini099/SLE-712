@@ -14,9 +14,9 @@ editor_options:
 ```{r}
 download.file("https://raw.githubusercontent.com/markziemann/SLE712_files/master/bioinfo_asst3_part1_files/gene_expression.tsv", destfile = "gene_expression.tsv" )
 x<- read.table("data/gene_expression.tsv", header = TRUE, stringsAsFactors = FALSE, row.names = 1)
-head(x,6)
+head(x)
 str(x)
-
+x[1:6,1:2]
 ```
 The row names were changed into gene accession number while naming the table as x
 ##Question 2 : Make a new column which is the mean of the other columns. Show a table of values for the first six genes
@@ -88,19 +88,17 @@ boxplot(NE$Circumf_2004_cm,NE$Circumf_2019_cm,SW$Circumf_2004_cm,SW$Circumf_2019
 ```
 
 ##Question 9  Calculate the mean growth over the past 10 years at each site.
-###Answer: For calculating mean growth for past 10 yeasrs in each site, two seperate columns were created.
+###Answer: For calculating mean growth for past 10 years in each site, two seperate columns were created.
 ```{r}
 NE$Growth <- (NE$Circumf_2019_cm-NE$Circumf_2009_cm )
 head(NE)
-```
-```{r}
 
 SW$Growth <- (SW$Circumf_2019_cm-SW$Circumf_2009_cm)
 head(SW)
 ```
 
 ##Question 10 Use the t.test and wilcox.test functions to estimate the p-value that the 10 year growth is different at the two site
-###Answer: For t.test and wilcox.test, the columns that demonstrated meam growth values for past 10 years
+###Answer: For t.test and wilcox.test, the columns that demonstrated mean growth values for past 10 years
 
 **t.test**
 ```{r}
