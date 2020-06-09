@@ -146,24 +146,27 @@ myfunc <- function(myseq,nmut) {
   if (is.null(res)) {myres= 0} else {myres = 1} 
   return(myres) 
 }
-myfunc(myseq=allocated_Seq,0) #applying the created function
-replicate(n = 100, myfunc(myseq= allocated_Seq,0)) #to repeat the function several times that would give a vector of 100 values
-mean(replicate(100,myfunc(myseq = allocated_Seq,0 ))) # to summerise the result
-n <-c (0,100,200,300,400,500,600,700)
+# for nmut= 789 
+myfunc(myseq=allocated_Seq,789) #applying the created function
+replicate(n = 100, myfunc(myseq= allocated_Seq,789)) #to repeat the function several times that would give a vector of 100 values
+mean(replicate(100,myfunc(myseq = allocated_Seq,789 ))) # to summerise the result
+n <-c (0,50,100,150,200,250,300)
 myfunction_rep <- function(nmut) {
- mean(replicate(n=100, myfunc(myseq= allocated_Seq,0)))
+ mean(replicate(100, myfunc(myseq= allocated_Seq,nmut)))
 }
 
-myfunc(myseq = allocated_Seq, nmut = 0)
+myfunc(myseq = allocated_Seq, nmut = 789)
 finalress <- sapply( n ,myfunction_rep)
 finalress
+
+
 
 # for nmut= 100 
 
 mean(replicate(100,myfunc(myseq = allocated_Seq,100 )))
-n <-c (0,100,200,300,400,500,600,700)
+n <-c (0,20,50,100,200,300,400,500,600,700)
 myfunction_rep <- function(nmut) {
-  mean(replicate(n=100, myfunc(myseq= allocated_Seq,100)))
+  mean(replicate(100, myfunc(myseq= allocated_Seq,nmut)))
 }
 myfunc(myseq = allocated_Seq, nmut = 100)
 finalress <- sapply( n ,myfunction_rep)
@@ -173,9 +176,9 @@ finalress
 #for nmut= 200
 
 mean(replicate(100,myfunc(myseq = allocated_Seq,200 )))
-n <-c (0,100,200,300,400,500,600,700)
+n <-c (0,20,50,100,200,300,400,500,600,700)
 myfunction_rep <- function(nmut) {
-  mean(replicate(n=100, myfunc(myseq= allocated_Seq,200)))
+  mean(replicate(100, myfunc(myseq= allocated_Seq,nmut)))
 }
 myfunc(myseq = allocated_Seq, nmut = 200)
 finalress <- sapply( n ,myfunction_rep)
@@ -183,9 +186,9 @@ finalress
 
 #for nmut= 300
 mean(replicate(100,myfunc(myseq = allocated_Seq,300 )))
-n <-c (0,100,200,300,400,500,600,700)
+n <-c (0,20,50,100,200,300,400,500,600,700)
 myfunction_rep <- function(nmut) {
-  mean(replicate(n=100, myfunc(myseq= allocated_Seq,300)))
+  mean(replicate(100, myfunc(myseq= allocated_Seq,nmut)))
 }
 myfunc(myseq = allocated_Seq, nmut = 300)
 finalress <- sapply( n ,myfunction_rep)
@@ -194,9 +197,9 @@ finalress
 #for nmut= 400
 
 mean(replicate(100,myfunc(myseq = allocated_Seq,400 )))
-n <-c (0,100,200,300,400,500,600,700)
+n <-c (0,20,50,100,200,300,400,500,600,700)
 myfunction_rep <- function(nmut) {
-  mean(replicate(n=100, myfunc(myseq= allocated_Seq,400)))
+  mean(replicate(100, myfunc(myseq= allocated_Seq,nmut)))
 }
 myfunc(myseq = allocated_Seq, nmut = 400)
 finalress <- sapply( n ,myfunction_rep)
@@ -204,9 +207,9 @@ finalress
 
 #nmut = 500
 mean(replicate(100,myfunc(myseq = allocated_Seq,500 )))
-n <-c (0,100,200,300,400,500,600,700)
+n <-c (0,20,50,100,200,300,400,500,600,700)
 myfunction_rep <- function(nmut) {
-  mean(replicate(n=100, myfunc(myseq= allocated_Seq,500)))
+  mean(replicate(100, myfunc(myseq= allocated_Seq,nmut)))
 }
 myfunc(myseq = allocated_Seq, nmut = 500)
 finalress <- sapply( n ,myfunction_rep)
@@ -214,9 +217,9 @@ finalress
 
 #for nmut =600
 mean(replicate(100,myfunc(myseq = allocated_Seq,600 )))
-n <-c (0,100,200,300,400,500,600,700)
+n <-c (0,20,50,100,200,300,400,500,600,700)
 myfunction_rep <- function(nmut) {
-  mean(replicate(n=100, myfunc(myseq= allocated_Seq,600)))
+  mean(replicate(100, myfunc(myseq= allocated_Seq,nmut)))
 }
 myfunc(myseq = allocated_Seq, nmut = 600)
 finalress <- sapply( n ,myfunction_rep)
@@ -224,10 +227,20 @@ finalress
 
 #for nmut=700
 mean(replicate(100,myfunc(myseq = allocated_Seq,700 )))
-n <-c (0,100,200,300,400,500,600,700)
+n <-c (0,20,50,100,200,300,400,500,600,700)
 myfunction_rep <- function(nmut) {
-  mean(replicate(n=100, myfunc(myseq= allocated_Seq,700)))
+  mean(replicate(100, myfunc(myseq= allocated_Seq,nmut)))
 }
 myfunc(myseq = allocated_Seq, nmut = 700)
+finalress <- sapply( n ,myfunction_rep)
+finalress
+
+#for nmut=789
+mean(replicate(100,myfunc(myseq = allocated_Seq,789 )))
+n <-c (0,20,50,100,200,300,400,500,600,700)
+myfunction_rep <- function(nmut) {
+  mean(replicate(n=100, myfunc(myseq= allocated_Seq,789)))
+}
+myfunc(myseq = allocated_Seq, nmut = 789)
 finalress <- sapply( n ,myfunction_rep)
 finalress
