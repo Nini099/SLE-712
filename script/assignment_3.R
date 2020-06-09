@@ -148,8 +148,15 @@ myfunc <- function(myseq,nmut) {
 }
 myfunc(myseq,100) #applying the created function
 replicate(n = 100, myfunc(myseq,100)) #to repeat the function several times that would give a vector of 100 values
-
 mean(replicate(100,myfunc(myseq,100 ))) # to summerise the result
+n <-c (0,100,200,300,400,500,600,700)
+myfunction_rep <- function(nmut) {
+ mean(replicate(n=100, myfunc(myseq,100)))
+}
+finalress <- sapply( n ,myfunction_rep)
+finalress
+
+plot(n)
 mean(replicate(100,myfunc(myseq,0)))
 mean(replicate(100,myfunc(myseq,200)))
 mean(replicate(100,myfunc(myseq,300)))
@@ -157,13 +164,3 @@ mean(replicate(100,myfunc(myseq,400)))
 mean(replicate(100,myfunc(myseq,500)))
 mean(replicate(100,myfunc(myseq,700)))
 mean(replicate(100,myfunc(myseq,800)))
-
-n <-c (0,100,200,300,400,500,600,700)
-myfunction_rep <- function(nmut) {
- mean(replicate(n=100, myfunc(myseq,100)))
-}
-
-finalress <- sapply( n ,myfunction_rep)
-finalress
-
-plot(n)
