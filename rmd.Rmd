@@ -1,12 +1,13 @@
 ---
-Title: "SLE712 Assessment 3"
+Student Id: '219276546'
+Title: SLE712 Assessment 3
 author: "Nishat Nini Urmi"
-Student Id : "219276546"
 date: "12/6/2020"
-output: html_document
-
-editor_options: 
+editor_options:
   chunk_output_type: inline
+output:
+  word_document: default
+  html_document: default
 ---
 ### Github Repository link : "https://github.com/Nini099/SLE-712" 
 ### Part 1: Importing files, data wrangling, mathematical operations, plots and saving code on GitHub 
