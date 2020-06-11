@@ -146,7 +146,7 @@ myfunc <- function(myseq,nmut) {
   if (is.null(res)) {myres= 0} else {myres = 1} 
   return(myres) 
 }
-# for nmut= 789 
+# for nmut= 789 as this is my allocated sequence size
 myfunc(myseq=allocated_Seq,789) #applying the created function
 replicate(n = 100, myfunc(myseq= allocated_Seq,789)) #to repeat the function several times that would give a vector of 100 values
 mean(replicate(100,myfunc(myseq = allocated_Seq,789 ))) # to summerise the result
@@ -158,89 +158,14 @@ myfunction_rep <- function(nmut) {
 myfunc(myseq = allocated_Seq, nmut = 789)
 finalress <- sapply( n ,myfunction_rep)
 finalress
+#The result shows the proportion of successful BLAST search is decreasing while nmut is increasing. 
+#Here n defines the different values for nmut .For each value for nmut , we replicated 100 times. 
 
 
+#Question 6. Provide a chart or table that shows how the increasing proportion of mutated bases reduces the ability for BLAST to match the gene of origin. Summarise the results in 1 to 2 sentences. 
+#Answer : To create a chart to identify how the increasing proportion of mutated bases reduces the ability for BLAST, we need to save the results from final res as a seperate vector, 
+Proportions <-c (1.00, 1.00, 1.00, 0.79, 0.32, 0.16, 0.00)
+nmut_val <- c(0,50,100,150,200,250,300)
+plot(Proportions,nmut_val,main="How increasing number of bases affects BLAST performnace  ",xlab = "Prportion of successful BLASTs ",ylab = "numbers of sites randomised","b")
 
-# for nmut= 100 
-
-mean(replicate(100,myfunc(myseq = allocated_Seq,100 )))
-n <-c (0,20,50,100,200,300,400,500,600,700)
-myfunction_rep <- function(nmut) {
-  mean(replicate(100, myfunc(myseq= allocated_Seq,nmut)))
-}
-myfunc(myseq = allocated_Seq, nmut = 100)
-finalress <- sapply( n ,myfunction_rep)
-finalress
-
-
-#for nmut= 200
-
-mean(replicate(100,myfunc(myseq = allocated_Seq,200 )))
-n <-c (0,20,50,100,200,300,400,500,600,700)
-myfunction_rep <- function(nmut) {
-  mean(replicate(100, myfunc(myseq= allocated_Seq,nmut)))
-}
-myfunc(myseq = allocated_Seq, nmut = 200)
-finalress <- sapply( n ,myfunction_rep)
-finalress
-
-#for nmut= 300
-mean(replicate(100,myfunc(myseq = allocated_Seq,300 )))
-n <-c (0,20,50,100,200,300,400,500,600,700)
-myfunction_rep <- function(nmut) {
-  mean(replicate(100, myfunc(myseq= allocated_Seq,nmut)))
-}
-myfunc(myseq = allocated_Seq, nmut = 300)
-finalress <- sapply( n ,myfunction_rep)
-finalress
-
-#for nmut= 400
-
-mean(replicate(100,myfunc(myseq = allocated_Seq,400 )))
-n <-c (0,20,50,100,200,300,400,500,600,700)
-myfunction_rep <- function(nmut) {
-  mean(replicate(100, myfunc(myseq= allocated_Seq,nmut)))
-}
-myfunc(myseq = allocated_Seq, nmut = 400)
-finalress <- sapply( n ,myfunction_rep)
-finalress
-
-#nmut = 500
-mean(replicate(100,myfunc(myseq = allocated_Seq,500 )))
-n <-c (0,20,50,100,200,300,400,500,600,700)
-myfunction_rep <- function(nmut) {
-  mean(replicate(100, myfunc(myseq= allocated_Seq,nmut)))
-}
-myfunc(myseq = allocated_Seq, nmut = 500)
-finalress <- sapply( n ,myfunction_rep)
-finalress
-
-#for nmut =600
-mean(replicate(100,myfunc(myseq = allocated_Seq,600 )))
-n <-c (0,20,50,100,200,300,400,500,600,700)
-myfunction_rep <- function(nmut) {
-  mean(replicate(100, myfunc(myseq= allocated_Seq,nmut)))
-}
-myfunc(myseq = allocated_Seq, nmut = 600)
-finalress <- sapply( n ,myfunction_rep)
-finalress
-
-#for nmut=700
-mean(replicate(100,myfunc(myseq = allocated_Seq,700 )))
-n <-c (0,20,50,100,200,300,400,500,600,700)
-myfunction_rep <- function(nmut) {
-  mean(replicate(100, myfunc(myseq= allocated_Seq,nmut)))
-}
-myfunc(myseq = allocated_Seq, nmut = 700)
-finalress <- sapply( n ,myfunction_rep)
-finalress
-
-#for nmut=789
-mean(replicate(100,myfunc(myseq = allocated_Seq,789 )))
-n <-c (0,20,50,100,200,300,400,500,600,700)
-myfunction_rep <- function(nmut) {
-  mean(replicate(n=100, myfunc(myseq= allocated_Seq,789)))
-}
-myfunc(myseq = allocated_Seq, nmut = 789)
-finalress <- sapply( n ,myfunction_rep)
-finalress
+#From the chart,  we can see the limitation of BLAST searches.  
