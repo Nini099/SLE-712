@@ -1,7 +1,15 @@
 # SLE-712
+<<<<<<< HEAD
 Bioinformatics Assessment part 1 and 2 
 ## Author  
+=======
+#### Bioinformatics Assessment part 1 and 2 
+
+### Author  
+
+>>>>>>> 3f6579e81002b60344fe31b5b75fb32d094cb0b7
 #### Nishat Nini Urmi
+
 #### ID: 219276546
 
 ## Motivation
@@ -12,11 +20,13 @@ For academic purposes to learn about coding language "R". By answering the quest
 contains the "gene_exression.tsv" and "growth_data.csv" files that are needed to answer the questions on **Part 1** of the assessment. 
 ### Script_file 
 Contains the codes for answers from both parts of the assessment with relevent comments about the functions. 
+### Rmd file 
+contains the detailed answers to the assessment questions. 
 
-### how to use this file 
+### How to use this file 
 a brief description of each codes in this file with its inputs and outputs-
 
-#### reading a (.tsv) file by making it's first column as row names 
+#### Reading a (.tsv) file by making it's first column as row names 
 can be done by using function read.table by  setting attributes *rownames*= 1 ,takes the value of the column , GeneID and returns into a dataframe. The function __head( )__   with n=6 returns the first six genes of the table and __str ()__ gives the structure of the data frame
 
 function : **read.table ()** 
@@ -176,28 +186,67 @@ input: **data.frame**
 ```{r}
 wilcox.test(SW$Growth,NE$Growth
 ```
+#### Working with BLAST and sequence. 
+#### Download gene sequence, unzip the file and perform BLAST. 
+The function __Gunzip()__ is used to decompress big file like genome sequences and lets us work with the sequences. For performing the BLAST in that sequence as well as to get the size of sequence , __makeblastdb()__ is used. 
 
-### Rmd file 
-contains the detailed answers to the assessment questions. 
-<<<<<<< HEAD
-  
+function : **Gunzip()**
 
-<<<<<<< HEAD
-description for each codes in *Part1* with inputs and outputs 
+input: **Genome sequence**
 
-read the (.tsv) file 
+Output : **unzipped genome data**
 
-##Packages
+function: **makeblastdb()**
+
+Input : **genome database**
+
+```{r}
+download.file("ftp://ftp.ensemblgenomes.org/pub/bacteria/release-42/fasta/bacteria_0_collection/escherichia_coli_str_k_12_substr_mg1655/cds/Escherichia_coli_str_k_12_substr_mg1655.ASM584v2.cds.all.fa.gz",
+              destfile = "Escherichia_coli_str_k_12_substr_mg1655.ASM584v2.cds.all.fa.gz")
+R.utils::gunzip("Escherichia_coli_str_k_12_substr_mg1655.ASM584v2.cds.all.fa.gz", overwrite= TRUE)              
+makeblastdb("Escherichia_coli_str_k_12_substr_mg1655.ASM584v2.cds.all.fa",dbtype = "nucl","-parse_seqids")
+```
+
+#### Read a fasta file and determine the numeber of base pair present. 
+for reading a fasta file __read.fasta()__ and the fuction from sequinr library __getLength()__ and __GC()__ can be used to get the length and gc content of the sequence. 
+
+```{r}
+if ( ! file.exists("sample.fa") ) {
+  download.file("https://raw.githubusercontent.com/markziemann/SLE712_files/master/bioinfo_asst3_part2_files/sample.fa",
+                destfile = "sample.fa")
+Ecoli_Sample <- read.fasta("sample.fa")
+seqinr::getLength(allocated_Seq)
+seqinr::GC(allocated_Seq)
+```
+
+#### Other functions that can be used for mutation, replication  and getting a chart - 
+__replicate()__ is a useful function that helps to perform replicates the value of an expression the desired number of time, and returns the result as  vector.__plot()__ can create a chart witht the provided datasets. 
+
+Function : **replicate**
+
+input : **dataset along with number of time we want to replicate**
+
+output : **result as a form of vector**
+
+Function: **plot()**
+
+Input : **data.frmae**
+
+output : **Chart**
+```{r}
+myfunc(myseq=allocated_Seq,789)
+replicate(n = 100, myfunc(myseq= allocated_Seq,789)) 
+mean(replicate(100,myfunc(myseq = allocated_Seq,789 ))) 
+n <-c (0,50,100,150,200,250,300)
+myfunction_rep <- function(nmut) {
+ mean(replicate(100, myfunc(myseq= allocated_Seq,nmut)))
+}
+plot(Proportions,nmut_val,main="How increasing number of bases affects BLAST performnace  ",xlab = "Prportion of successful BLASTs ",ylab = "numbers of sites randomised","b")
+```
+### Packages required for Working with sequence. 
 ```{r}
 library("seqinr")
-=======
-=======
->>>>>>> 8fdd1907bffddeae87f1cdfb21821981bc5e2eb8
-## Packages
-The following packages are needed to work with sequnce in R for part 2 
-```{r}
 library("seqinr") 
->>>>>>> 86aed0bd7f03eff6c1d7c7162aa59eb948f0afc2
 library("R.utils")
 library("rBLAST")
 library("ape")
@@ -205,11 +254,6 @@ library("ORFik")
 library("Biostrings")
 <<<<<<< HEAD
  ``` 
-
-## Installation 
-=======
-```
-##
 ## Installation
 Rstudio 
 version 1.2.1335 
