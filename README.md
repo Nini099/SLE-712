@@ -238,9 +238,6 @@ myfunction_rep <- function(nmut) {
 }
 plot(Proportions,nmut_val,main="How increasing number of bases affects BLAST performnace  ",xlab = "Prportion of successful BLASTs ",ylab = "numbers of sites randomised","b")
 ```
-
-
-
 ### Packages required for Working with sequence. 
 ```{r}
 library("seqinr")
