@@ -1,13 +1,9 @@
 # SLE-712
-<<<<<<< HEAD
-Bioinformatics Assessment part 1 and 2 
-## Author  
-=======
-#### Bioinformatics Assessment part 1 and 2 
+
+#### Bioinformatics Assessment part 1 and 2  
 
 ### Author  
 
->>>>>>> 3f6579e81002b60344fe31b5b75fb32d094cb0b7
 #### Nishat Nini Urmi
 
 #### ID: 219276546
