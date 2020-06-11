@@ -1,12 +1,8 @@
 # SLE-712
 
-Bioinformatics Assessment part 1 and 2 
-## Author  
-
-#### Bioinformatics Assessment part 1 and 2 
+#### Bioinformatics Assessment part 1 and 2  
 
 ### Author  
-
 
 #### Nishat Nini Urmi
 
