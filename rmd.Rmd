@@ -1,13 +1,14 @@
 ---
-title: "SLE712 Assessment 3"
+Title: "SLE712 Assessment 3"
 author: "Nishat Nini Urmi"
-date: "6/7/2020"
-Repository link: https://github.com/Nini099/SLE-712
+Student Id : "219276546"
+date: "12/6/2020"
 output: html_document
+
 editor_options: 
   chunk_output_type: inline
 ---
- 
+### Github Repository link : "https://github.com/Nini099/SLE-712" 
 ### Part 1: Importing files, data wrangling, mathematical operations, plots and saving code on GitHub 
 
 ##Question 1 : Read in the file, making the gene accession numbers the row names. Show a table of values for the first six genes
@@ -261,4 +262,5 @@ nmut_val <- c(0,50,100,150,200,250,300)
 plot(Proportions,nmut_val,main="How increasing number of bases affects BlAST performnace  ",xlab = "Prportion of successful BLASTs ",ylab = "numbers of sites randomised","b")
 
 ```
+
 The proportion of Sucessful BLASTs decreasing as the number of randomised size increased. It tells the limit of BLAST is when nmut is around 300. 
