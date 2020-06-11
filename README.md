@@ -1,7 +1,7 @@
 # SLE-712
 #### Bioinformatics Assessment part 1 and 2 
 
-## Author :  
+### Author  
 
 #### Nishat Nini Urmi
 
@@ -17,16 +17,11 @@ contains the "gene_exression.tsv" and "growth_data.csv" files that are needed to
 Contains the codes for answers from both parts of the assessment with relevent comments about the functions. 
 ### Rmd file 
 contains the detailed answers to the assessment questions. 
-<<<<<<< HEAD
-  
-
-<<<<<<< HEAD
-description for each codes in *Part1* with inputs and outputs 
 
 ### How to use this file 
 a brief description of each codes in this file with its inputs and outputs-
 
-#### reading a (.tsv) file by making it's first column as row names 
+#### Reading a (.tsv) file by making it's first column as row names 
 can be done by using function read.table by  setting attributes *rownames*= 1 ,takes the value of the column , GeneID and returns into a dataframe. The function __head( )__   with n=6 returns the first six genes of the table and __str ()__ gives the structure of the data frame
 
 function : **read.table ()** 
@@ -249,13 +244,7 @@ plot(Proportions,nmut_val,main="How increasing number of bases affects BLAST per
 ### Packages required for Working with sequence. 
 ```{r}
 library("seqinr")
-=======
-=======
->>>>>>> 8fdd1907bffddeae87f1cdfb21821981bc5e2eb8
-
-```{r}
 library("seqinr") 
->>>>>>> 86aed0bd7f03eff6c1d7c7162aa59eb948f0afc2
 library("R.utils")
 library("rBLAST")
 library("ape")
