@@ -2,6 +2,7 @@
 title: "SLE712 Assessment 3"
 author: "Nishat Nini Urmi"
 date: "6/7/2020"
+Repository link: https://github.com/Nini099/SLE-712
 output: html_document
 editor_options: 
   chunk_output_type: inline
@@ -219,29 +220,29 @@ res
 ##Answer : At 1st we need to create a function that will do mutation and blast and give the result as 0 or 1 depending on the blast was successful or not
 ```{r}
 myfunc <- function(myseq,nmut) { 
-  mutseq <- mutator( myseq= allocated_Seq, nmut = nmut) #the sequence for mutation, nmut=nmut as it will recognize the number after the sequence as nmut 
-  res <- myblastn_tab(myseq= allocated_Seq,db= "Escherichia_coli_str_k_12_substr_mg1655.ASM584v2.cds.all.fa") #for blast
+  mutseq <- mutator( myseq= myseq , nmut = nmut) #the sequence for mutation, nmut=nmut as it will recognize the number after the sequence as nmut 
+  res <- myblastn_tab(myseq= mutseq ,db= "Escherichia_coli_str_k_12_substr_mg1655.ASM584v2.cds.all.fa") #for blast
   if (is.null(res)) {myres= 0} else {myres = 1} 
   return(myres) 
 }
 ```
  applying the created function 
 ```{r}
-myfunc(myseq,100)
+myfunc(myseq=allocated_Seq,789)
 ```
 Then applying the replicate fucntion that will run the same function several times and that would give a vector of number of values 
 ```{r}
-replicate(n = 100, myfunc(myseq,100))
+replicate(n = 100, myfunc(myseq= allocated_Seq,789))
 ```
 geting the summerised result 
 ```{r}
-mean(replicate(100,myfunc(myseq,100 )))
+mean(replicate(100,myfunc(myseq = allocated_Seq,789 )))
 ```
 we need to run this for all the values for nmut. The numbers are saved as n below which is used to run the replicate command 
 ```{r}
-n <-c (0,100,200,300,400,500,600,700)
+n <-c (0,50,100,150,200,250,300)
 myfunction_rep <- function(nmut) {
- mean(replicate(n=100, myfunc(myseq,100)))
+ mean(replicate(100, myfunc(myseq= allocated_Seq,nmut)))
 }
 ```
 The final answer with sapply comand 
@@ -250,3 +251,14 @@ finalress <- sapply( n ,myfunction_rep)
 finalress
 ```
 
+
+##Provide a chart or table that shows how the increasing proportion of mutated bases reduces the ability for BLAST to match the gene of origin. Summarise the results in 1 to 2 sentences. 
+
+##Answer : The results from previously found results, a chart is created to show 
+```{r}
+Proportions <-c (1.00, 1.00, 1.00, 0.79, 0.32, 0.16, 0.00)
+nmut_val <- c(0,50,100,150,200,250,300)
+plot(Proportions,nmut_val,main="How increasing number of bases affects BlAST performnace  ",xlab = "Prportion of successful BLASTs ",ylab = "numbers of sites randomised","b")
+
+```
+The proportion of Sucessful BLASTs decreasing as the number of randomised size increased. It tells the limit of BLAST is when nmut is around 300. 
