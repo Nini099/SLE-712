@@ -1,7 +1,7 @@
 ---
 title:"SLE 712 Assessment 3"
 Author: "Nishat Nini Urmi"
-date: 4/6/2020
+date: 12/6/2020
 output: html_document
 ---
 
@@ -168,4 +168,4 @@ Proportions <-c (1.00, 1.00, 1.00, 0.79, 0.32, 0.16, 0.00)
 nmut_val <- c(0,50,100,150,200,250,300)
 plot(Proportions,nmut_val,main="How increasing number of bases affects BLAST performnace  ",xlab = "Prportion of successful BLASTs ",ylab = "numbers of sites randomised","b")
 
-#From the chart,  we can see the limitation of BLAST searches.  
+#From the chart,  we can see the limitation of BLAST searches . It was proportion of successful BLAST was highest (1.0) when the number of random sites were around 100. As it kept incresing, the success rate dropped.   
